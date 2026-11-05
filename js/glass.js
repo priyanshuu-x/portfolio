@@ -13,7 +13,7 @@
   } catch (e) { return; }
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.75));
   renderer.toneMapping = T.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
+  renderer.toneMappingExposure = 0.8;
   renderer.setClearColor(0x000000, 0);
 
   const scene = new T.Scene();
@@ -29,9 +29,9 @@
     m.position.set(x, y, z); m.lookAt(0, 0, 0); env.add(m);
   };
   panel(0xffffff, -8, 6, 6, 9, 5, 6);
-  panel(0xb59cff, 9, 1, 4, 5, 9, 5);
+  panel(0xaec4ff, 9, 1, 4, 5, 9, 5);
   panel(0xffffff, 0, -9, 3, 12, 3, 3);
-  panel(0x7c3aed, -9, -3, -4, 6, 8, 4);
+  panel(0xffc2dc, -9, -3, -4, 6, 8, 4);
   panel(0xffffff, 3, 9, -6, 8, 3, 4);
   scene.environment = pm.fromScene(env, 0.03).texture;
 
@@ -64,8 +64,8 @@
   /* glass */
   const glass = new T.MeshPhysicalMaterial({
     color: 0xffffff, metalness: 0, roughness: 0.04, transmission: 1, thickness: 1.6, ior: 1.5,
-    attenuationColor: new T.Color(0xa78bfa), attenuationDistance: 5,
-    clearcoat: 1, clearcoatRoughness: 0.03, envMapIntensity: 1.7, specularIntensity: 1,
+    attenuationColor: new T.Color(0xb9a6ff), attenuationDistance: 2.6,
+    clearcoat: 1, clearcoatRoughness: 0.03, envMapIntensity: 1.0, specularIntensity: 1,
   });
   const group = new T.Group();
   scene.add(group);

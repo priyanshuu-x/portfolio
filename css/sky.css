@@ -1,0 +1,117 @@
+/* ===== SKY THEME: royal-blue → periwinkle → lilac → pink, white type, frosted glass ===== */
+:root{
+  --bg:#2a58d6;--bg2:rgba(255,255,255,.14);--card:rgba(255,255,255,.16);
+  --fg:#fff;--mut:rgba(255,255,255,.8);--line:rgba(255,255,255,.3);
+  --acc:#fff;--acc2:#f1e9ff;--deep:#6f5be0;--btn:linear-gradient(135deg,#a898f6,#6f5be0);
+  --glass:rgba(255,255,255,.16);--glass-b:rgba(255,255,255,.5);--bad:#ff7d9c;--good:#7dffc4;
+}
+body{background-color:#2352d1;background-image:linear-gradient(180deg,#2352d1 0%,#3f6de3 14%,#6d8cee 32%,#9d95ee 50%,#c29cef 68%,#e3a4dc 86%,#f4b9cf 100%);color:#fff}
+::selection{background:#6f5be0;color:#fff}
+.loader{background:#2352d1}
+.loader-count,.loader-name span{color:#fff}
+.grain{opacity:.05}
+#net{opacity:.9}
+
+/* soft horizon clouds fixed behind the page */
+body::before{content:"";position:fixed;left:-10%;right:-10%;bottom:-14%;height:46vh;z-index:0;pointer-events:none;filter:blur(22px);opacity:.7;
+  background:
+   radial-gradient(38% 60% at 14% 78%,rgba(255,208,190,.9),transparent 70%),
+   radial-gradient(34% 55% at 42% 92%,rgba(255,255,255,.75),transparent 70%),
+   radial-gradient(38% 60% at 72% 80%,rgba(255,190,218,.85),transparent 70%),
+   radial-gradient(30% 50% at 96% 92%,rgba(255,226,210,.85),transparent 70%);
+  animation:cloud 26s ease-in-out infinite alternate}
+@keyframes cloud{from{transform:translateX(-3%)}to{transform:translateX(3%)}}
+
+/* nav */
+.nav.solid{background:linear-gradient(rgba(35,82,209,.6),transparent)}
+.nav .links{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.5)}
+.links a{color:rgba(255,255,255,.9)}
+.links a:hover{background:rgba(255,255,255,.2);color:#fff}
+.links a.hot{background:#fff;color:#4a3ccc}
+.links a.hot:hover{background:#efe6ff}
+.burger{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.55)}
+.clock b{color:#fff}
+
+/* hero */
+.orb{background:radial-gradient(circle at 35% 35%,#fff 0%,#ffe0d0 24%,#f6a9d8 50%,transparent 72%)!important;opacity:.5!important}
+.hero-bullets li::before{color:#fff}
+.cta{background:var(--btn);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 14px 40px -10px rgba(60,40,190,.7)}
+.cta:hover{background:#fff;color:#4a3ccc}
+.float-hint{background:var(--btn);color:#fff;border-color:rgba(255,255,255,.6)}
+.marquee{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35)}
+.marquee-track span::after{color:#fff}
+.dot{background:#7dffc4}
+
+/* type accents */
+.eyebrow{color:#fff;opacity:.85}
+em{color:#fff}
+.hero-lede em,.big em,.huge em,.mid em{color:#fff;text-shadow:0 0 30px rgba(255,255,255,.35)}
+.about-text .w{opacity:.3}
+.about-text .w.lit{opacity:1}
+.stat b,.metrics b,.score b,.metrics b span,.stat b span{background:none;-webkit-background-clip:initial;background-clip:initial;color:#fff;-webkit-text-fill-color:#fff}
+.stat{background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border-color:rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 20px 50px -25px rgba(30,40,150,.6)}
+.power .n{color:#fff}
+.power:hover{background:linear-gradient(90deg,rgba(255,255,255,.16),transparent 70%)}
+.tags span{border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.14);color:#fff}
+.tags span:hover{background:#fff;color:#4a3ccc;border-color:#fff}
+.power:hover .tags span,.card:hover .tags span{border-color:#fff}
+.spot::before{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.2),transparent 60%)}
+
+/* project cards: pastel-purple frosted glass */
+.card{background:linear-gradient(160deg,rgba(142,120,238,.93),rgba(86,96,216,.94));border-color:rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 -30px 60px -20px rgba(30,40,150,.55),0 0 80px -30px rgba(255,255,255,.5)}
+.card-top{color:#fff}
+.pts{color:rgba(255,255,255,.85)}
+.pts li::before{background:#fff}
+code{color:#ffe6f4}
+.metrics div{border-top-color:rgba(255,255,255,.4)}
+.gh{border-color:rgba(255,255,255,.55)}
+.gh:hover{background:#fff;color:#4a3ccc;border-color:#fff}
+.viz{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 0 40px rgba(255,255,255,.1)}
+.nd{fill:rgba(255,255,255,.2);stroke:rgba(255,255,255,.75)}
+.nd.acc{fill:rgba(255,255,255,.42);stroke:#fff}
+.viz text{fill:#fff}.viz text.sm{fill:rgba(255,255,255,.88)}
+.pill{stroke:#fff}
+.edges path{stroke:rgba(255,255,255,.6)}
+.flow{stroke:#fff!important}
+
+/* lab */
+.lab{background:none}
+.lab-lede{color:rgba(255,255,255,.88)}
+.console{background:linear-gradient(160deg,rgba(38,34,112,.8),rgba(24,26,78,.86));border-color:rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 40px 100px -30px rgba(30,30,140,.7)}
+.console-bar b,.prompt,.tag{color:#c9bcff}
+.t-you::before{color:#c9bcff}
+.t-say{border-left-color:#c9bcff}
+.node.on{background:#fff;color:#2b2a8a;border-color:#fff;box-shadow:0 0 18px rgba(255,255,255,.7)}
+.node.wait{color:#ffd7a8;border-color:#ffd7a8}
+.chips button{border-color:rgba(255,255,255,.4)}
+.chips button:hover{border-color:#fff;background:rgba(255,255,255,.18)}
+.reset:hover{border-color:#fff;color:#fff}
+.term-form button{background:var(--btn);color:#fff}
+.term-form button:hover{background:#fff;color:#4a3ccc}
+.orders,.rules,.score{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.5)}
+.side h4{color:#fff}
+.note{color:rgba(255,255,255,.85)}
+.shape{box-shadow:inset 0 2px 1px rgba(255,255,255,.7),inset 0 -14px 30px rgba(110,100,230,.4),0 30px 60px -20px rgba(40,50,170,.55)}
+
+/* proof / contact / footer */
+.mail{border-bottom-color:#fff}
+.mail:hover{color:#ffe6f4}
+.social a{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.12)}
+.social a:hover{background:#fff;color:#4a3ccc;border-color:#fff}
+.huge,.big,.mid{text-shadow:0 2px 30px rgba(40,50,170,.25)}
+.foot{background:rgba(255,255,255,.14);border-top-color:rgba(255,255,255,.35);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff}
+.foot b{color:#fff}
+
+/* scratch UI */
+#reveal-all{border-color:rgba(255,255,255,.55)}
+#reveal-all:hover{background:#fff;color:#4a3ccc}
+.unlock-bar b{color:#fff}
+.skip-scratch{background:rgba(40,40,150,.5)}
+.skip-scratch:hover{background:#fff;color:#4a3ccc}
+
+/* mobile menu overlay (was inheriting translucent glass) */
+@media (max-width:980px){
+  .nav .links{background:linear-gradient(180deg,#2352d1,#9d95ee 60%,#e3a4dc);border:0;border-radius:0;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+  .links a{color:#fff}
+  .links a.hot{color:#4a3ccc}
+}

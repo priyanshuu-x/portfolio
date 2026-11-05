@@ -26,8 +26,8 @@
 
   function paintFoil(ctx, w, h, idx) {
     const g = ctx.createLinearGradient(0, 0, w, h);
-    g.addColorStop(0, '#1d1538'); g.addColorStop(0.28, '#5b3fd0');
-    g.addColorStop(0.5, '#c4b5fd'); g.addColorStop(0.72, '#6d4fe0'); g.addColorStop(1, '#150f2b');
+    g.addColorStop(0, '#6a7de8'); g.addColorStop(0.28, '#a99af4');
+    g.addColorStop(0.5, '#f7c4e2'); g.addColorStop(0.72, '#9fb0f5'); g.addColorStop(1, '#7a6be6');
     ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
     // brushed lines
     ctx.save(); ctx.globalAlpha = 0.07; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1;
