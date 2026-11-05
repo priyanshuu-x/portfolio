@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/glass.css">
   <link rel="stylesheet" href="css/type.css">
-  <link rel="stylesheet" href="css/scratch.css">
   <link rel="stylesheet" href="css/sky.css">
   <link rel="stylesheet" href="css/tower.css">
+  <link rel="stylesheet" href="css/stage.css">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -120,36 +120,45 @@
   <div class="wrap">
     <p class="eyebrow mono" data-r>01 — SELECTED PROJECTS</p>
     <h2 class="big" data-split>Built, broken, <em>measured.</em></h2>
-    <div class="unlock-bar mono" data-r>
-      <span><span class="hand" aria-hidden="true">☝</span> Every project is locked. Press and drag to scratch the foil.</span>
-      <span><b id="unlock-count">0</b> / <b id="unlock-total">3</b> unlocked</span>
-      <button type="button" id="reveal-all" data-cur>Reveal all</button>
-      <span id="unlock-done">✦ All projects unlocked</span>
-    </div>
-  </div>
 
-  <div class="stack wrap">
-    <!-- TicketPilot -->
-    <article class="card spot" style="--i:0">
-      <div class="card-text">
-        <div class="card-top mono"><span>P—01</span><span>Multi-agent · MCP · HITL</span></div>
-        <h3>TicketPilot</h3>
-        <p class="sub">A 4-agent customer-support system that resolves refund &amp; order tickets end to end — and can’t be tricked into a wrong refund.</p>
-        <ul class="pts">
-          <li>Supervisor, Investigator, Policy Advisor and Resolver on a stateful <b>LangGraph</b>, each with least-privilege access to a standalone <b>MCP server</b> that enforces refund rules and order ownership server-side.</li>
-          <li><code>interrupt()</code>-based human approval for high-value refunds, input/PII guardrails and a reply grounding check.</li>
-          <li>Postgres checkpointing, pgvector memory, 4 Dockerized services, CI/CD with 51 tests publishing to GHCR.</li>
-        </ul>
-        <div class="metrics">
-          <div><b><span data-to="19">0</span>/<span data-to="19">0</span></b><small>correct outcomes</small></div>
-          <div><b><span data-to="0">0</span></b><small>wrong refunds</small></div>
-          <div><b><span data-to="51">0</span></b><small>tests in CI</small></div>
-        </div>
-        <div class="tags"><span>LangGraph</span><span>MCP</span><span>FastAPI</span><span>Streamlit</span><span>Postgres</span><span>pgvector</span><span>Docker</span><span>GitHub Actions</span></div>
-        <a class="gh" href="https://github.com/priyanshuu-x/ticketpilot" target="_blank" rel="noopener" data-cur data-mag>View on GitHub <i>↗</i></a>
+    <div class="gs" id="gs">
+      <div class="gs-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <filter id="gsgrain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0"/></filter>
+            <linearGradient id="gsA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f1ff"/><stop offset="1" stop-color="#b9b0ff"/></linearGradient>
+            <linearGradient id="gsB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1f78"/><stop offset="1" stop-color="#0b0d3a"/></linearGradient>
+          </defs>
+          <rect width="1600" height="900" fill="url(#gsB)"/>
+          <path d="M-120 760C160 330 520 60 900 -40L1080 -40C800 170 600 520 590 960L-120 960Z" fill="url(#gsA)"/>
+          <circle cx="1290" cy="170" r="250" fill="#f4f1ff"/>
+          <path d="M880 960C940 600 1180 330 1720 280L1720 960Z" fill="#c4bbff"/>
+          <path d="M1060 -40C1150 120 1420 150 1720 90L1720 -40Z" fill="#12155a"/>
+          <g fill="none" stroke="#fff" stroke-opacity=".28"><circle cx="1290" cy="170" r="330"/><circle cx="1290" cy="170" r="410"/><path d="M-60 520C260 380 520 380 760 600"/><path d="M-60 600C260 460 520 460 760 680"/></g>
+          <rect width="1600" height="900" filter="url(#gsgrain)" opacity=".5"/>
+        </svg>
       </div>
-      <figure class="viz" aria-label="Diagram of the TicketPilot agent graph">
-        <svg viewBox="0 0 420 290" role="img">
+
+      <div class="gs-panel">
+        <div class="gs-glow" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <i class="gs-tile t1" aria-hidden="true">R</i><i class="gs-tile t2" aria-hidden="true">M</i><i class="gs-tile t3" aria-hidden="true">A</i><i class="gs-tile t4" aria-hidden="true">✦</i>
+
+        <div class="gs-top">
+          <span class="gs-brand">PROJECTS</span>
+          <div class="gs-tabs" role="tablist">
+            <button type="button" data-go="0" class="on" data-cur>TicketPilot</button>
+            <button type="button" data-go="1" data-cur>PaperPilot</button>
+            <button type="button" data-go="2" data-cur>LLM Gateway</button>
+          </div>
+        </div>
+
+        <button type="button" class="gs-arrow prev" aria-label="Previous project" data-cur>◀</button>
+        <button type="button" class="gs-arrow next" aria-label="Next project" data-cur>▶</button>
+
+        <div class="gs-items">
+        <div class="gs-item" data-name="TicketPilot" role="button" tabindex="0" aria-label="TicketPilot">
+          <div class="lbl"><span>TICKETPILOT</span><span>01/03</span></div>
+          <figure class="viz"><svg viewBox="0 0 420 290" role="img">
           <g class="edges">
             <path class="flow" d="M210 48 L65 100"/><path class="flow" d="M210 48 L210 100"/><path class="flow" d="M210 48 L355 100"/>
             <path class="flow" d="M65 138 L65 232"/><path class="flow" d="M210 138 L210 232"/><path class="flow" d="M355 138 L355 232"/>
@@ -160,31 +169,11 @@
           <rect class="nd" x="300" y="100" width="110" height="38" rx="10"/><text x="355" y="123" text-anchor="middle">Resolver</text>
           <rect class="pill" x="125" y="170" width="170" height="28" rx="14"/><text x="210" y="188" text-anchor="middle" class="sm">interrupt() · human approval</text>
           <rect class="nd wide" x="10" y="232" width="400" height="44" rx="10"/><text x="210" y="259" text-anchor="middle">MCP server · rules enforced server-side</text>
-        </svg>
-      </figure>
-    </article>
-
-    <!-- PaperPilot -->
-    <article class="card spot" style="--i:1">
-      <div class="card-text">
-        <div class="card-top mono"><span>P—02</span><span>RAG · Citations · Evals</span></div>
-        <h3>PaperPilot</h3>
-        <p class="sub">Ask questions over 20 arXiv GenAI papers and get answers with inline citations down to section and page.</p>
-        <ul class="pts">
-          <li>Docling PDF parsing into 998 chunks; <b>hybrid search</b> (BGE dense + BM25 sparse) in Qdrant fused with Reciprocal Rank Fusion, then cross-encoder reranking inside a LangGraph pipeline.</li>
-          <li>A reranker-based <b>confidence gate</b> refuses off-topic questions without spending an LLM call (4/4 refused).</li>
-          <li>Regex guardrails run before any Groq call; a cached, resumable eval runner cut judge calls from ~280 to ~120.</li>
-        </ul>
-        <div class="metrics">
-          <div><b><span data-to="0.89" data-dec="2">0</span></b><small>groundedness</small></div>
-          <div><b><span data-to="0.87" data-dec="2">0</span></b><small>answer relevance</small></div>
-          <div><b><span data-to="3">0</span>/<span data-to="3">0</span></b><small>injections blocked</small></div>
+        </svg></figure>
         </div>
-        <div class="tags"><span>Docling</span><span>Qdrant</span><span>BGE</span><span>BM25</span><span>DeepEval</span><span>LangSmith</span><span>Groq</span></div>
-        <a class="gh" href="https://github.com/priyanshuu-x/PaperPilot" target="_blank" rel="noopener" data-cur data-mag>View on GitHub <i>↗</i></a>
-      </div>
-      <figure class="viz" aria-label="Diagram of the PaperPilot retrieval pipeline">
-        <svg viewBox="0 0 420 290" role="img">
+        <div class="gs-item" data-name="PaperPilot" role="button" tabindex="0" aria-label="PaperPilot">
+          <div class="lbl"><span>PAPERPILOT</span><span>02/03</span></div>
+          <figure class="viz"><svg viewBox="0 0 420 290" role="img">
           <g class="edges">
             <path class="flow" d="M80 128 L110 82"/><path class="flow" d="M80 128 L110 178"/>
             <path class="flow" d="M200 82 L232 128"/><path class="flow" d="M200 178 L232 128"/>
@@ -198,31 +187,11 @@
           <rect class="nd" x="312" y="110" width="100" height="36" rx="10"/><text x="362" y="133" text-anchor="middle">Rerank</text>
           <rect class="nd wide" x="250" y="220" width="160" height="44" rx="10"/><text x="330" y="247" text-anchor="middle">Answer + [p.12 §3]</text>
           <rect class="pill" x="10" y="232" width="200" height="28" rx="14"/><text x="110" y="250" text-anchor="middle" class="sm">confidence gate · refuse off-topic</text>
-        </svg>
-      </figure>
-    </article>
-
-    <!-- LLM Gateway -->
-    <article class="card spot" style="--i:2">
-      <div class="card-text">
-        <div class="card-top mono"><span>P—03</span><span>Gateway · Guardrails · Observability</span></div>
-        <h3>LLM Gateway</h3>
-        <p class="sub">An OpenAI-compatible routing layer that decides which model answers, what’s cached, and what never reaches a model at all.</p>
-        <ul class="pts">
-          <li>FastAPI <code>/v1/chat/completions</code> endpoint routing across two Groq models with <b>automatic fallback</b>.</li>
-          <li>Redis exact-match caching, per-key sliding-window rate limiting, and regex prompt-injection / PII guardrails ahead of every model call.</li>
-          <li>Caught two real injection bypasses with a live regression harness, rewrote the detector to a wildcard-gap pattern and locked both cases into the permanent golden set.</li>
-        </ul>
-        <div class="metrics">
-          <div><b><span data-to="2">0</span></b><small>real bypasses caught</small></div>
-          <div><b><span data-to="6">0</span></b><small>case regression eval</small></div>
-          <div><b><span data-to="2">0</span></b><small>models w/ fallback</small></div>
+        </svg></figure>
         </div>
-        <div class="tags"><span>FastAPI</span><span>Redis</span><span>Groq</span><span>Rate limiting</span><span>Guardrails</span><span>Eval harness</span></div>
-        <a class="gh" href="https://github.com/priyanshuu-x/llm-gateway" target="_blank" rel="noopener" data-cur data-mag>View on GitHub <i>↗</i></a>
-      </div>
-      <figure class="viz" aria-label="Diagram of the LLM Gateway request path">
-        <svg viewBox="0 0 440 290" role="img">
+        <div class="gs-item" data-name="LLM Gateway" role="button" tabindex="0" aria-label="LLM Gateway">
+          <div class="lbl"><span>LLM GATEWAY</span><span>03/03</span></div>
+          <figure class="viz"><svg viewBox="0 0 440 290" role="img">
           <g class="edges">
             <path class="flow" d="M70 128 L90 128"/><path class="flow" d="M170 128 L190 128"/><path class="flow" d="M250 128 L270 128"/>
             <path class="flow" d="M330 120 L360 82"/><path class="flow" d="M330 136 L360 178"/>
@@ -236,9 +205,36 @@
           <rect class="nd" x="360" y="160" width="70" height="36" rx="10"/><text x="395" y="183" text-anchor="middle">Model B</text>
           <rect class="pill" x="60" y="220" width="130" height="28" rx="14"/><text x="125" y="238" text-anchor="middle" class="sm">injection · PII</text>
           <rect class="pill" x="200" y="220" width="130" height="28" rx="14"/><text x="265" y="238" text-anchor="middle" class="sm">Redis · rate limit</text>
-        </svg>
-      </figure>
-    </article>
+        </svg></figure>
+        </div>
+        </div>
+
+        
+        <div class="gs-info on">
+          <p class="k">P—01 · MULTI-AGENT · MCP · HUMAN-IN-THE-LOOP</p>
+          <h3>TicketPilot</h3>
+          <p>A 4-agent support system that resolves refund and order tickets end to end. An MCP server enforces the rules server-side and a human approves high-value refunds.</p>
+          <div class="gs-m"><div><b>19/19</b><small>correct outcomes</small></div><div><b>0</b><small>wrong refunds</small></div><div><b>51</b><small>tests in CI</small></div></div>
+          <a href="https://github.com/priyanshuu-x/ticketpilot" target="_blank" rel="noopener" data-cur>View on GitHub ↗</a>
+        </div>
+        <div class="gs-info">
+          <p class="k">P—02 · RAG · CITATIONS · EVALS</p>
+          <h3>PaperPilot</h3>
+          <p>Ask 20 arXiv GenAI papers and get answers cited down to the page. Hybrid BGE + BM25 search, RRF fusion, cross-encoder reranking and a confidence gate that refuses off-topic questions.</p>
+          <div class="gs-m"><div><b>0.89</b><small>groundedness</small></div><div><b>0.87</b><small>answer relevance</small></div><div><b>3/3</b><small>injections blocked</small></div></div>
+          <a href="https://github.com/priyanshuu-x/PaperPilot" target="_blank" rel="noopener" data-cur>View on GitHub ↗</a>
+        </div>
+        <div class="gs-info">
+          <p class="k">P—03 · GATEWAY · GUARDRAILS · OBSERVABILITY</p>
+          <h3>LLM Gateway</h3>
+          <p>An OpenAI-compatible router across two Groq models with fallback, Redis caching, rate limits and injection / PII guardrails. Two real bypasses caught and locked into the regression set.</p>
+          <div class="gs-m"><div><b>2</b><small>bypasses caught</small></div><div><b>6</b><small>case regression eval</small></div><div><b>2</b><small>models w/ fallback</small></div></div>
+          <a href="https://github.com/priyanshuu-x/llm-gateway" target="_blank" rel="noopener" data-cur>View on GitHub ↗</a>
+        </div>
+
+        <div class="gs-tl" aria-hidden="true"><i class="gs-dot"></i></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -346,8 +342,8 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 <script src="js/agent.js"></script>
 <script src="js/glass.js"></script>
-<script src="js/scratch.js"></script>
 <script src="js/tower.js"></script>
+<script src="js/stage.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
