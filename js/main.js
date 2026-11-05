@@ -77,6 +77,7 @@
   if (window.Lenis && !reduce) {
     lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1, smoothWheel: true });
   }
+  window.__lenis = lenis;
   $$('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');

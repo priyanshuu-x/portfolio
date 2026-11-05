@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/type.css">
   <link rel="stylesheet" href="css/scratch.css">
   <link rel="stylesheet" href="css/sky.css">
+  <link rel="stylesheet" href="css/tower.css">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -88,6 +89,36 @@
     <span>LangGraph</span><span>MCP</span><span>RAG</span><span>FastAPI</span><span>Qdrant</span><span>pgvector</span><span>DeepEval</span><span>Docker</span><span>Redis</span><span>PyTorch</span><span>LangSmith</span><span>Guardrails</span>
   </div>
 </div>
+
+<!-- TOWER -->
+<section class="tower" id="tower">
+  <div class="wrap">
+    <p class="eyebrow mono" data-r>EXPLORE — THE AGENT TOWER</p>
+    <h2 class="big" data-split>Spin the tower. <em>Pick a door.</em></h2>
+  </div>
+  <div class="tw-stage" id="tw-stage" aria-label="3D rotating tower of portfolio sections">
+    <div class="tw-rig" id="tw-rig">
+      <div class="tw-ant" aria-hidden="true"><i class="tw-beacon"></i><i class="tw-ring"></i><i class="tw-ring r2"></i></div>
+      <div class="tw-core" aria-hidden="true"></div>
+      <div class="tw-spin" id="tw-spin">
+        <button class="tw-panel" style="--i:0;--c1:#e2d8ff;--c2:#b3a5f7" data-cur aria-label="Open About Me"><span class="tw-n mono">01 / ABOUT</span><span class="tw-t">About<br>Me</span><span class="tw-go mono">Explore ↗</span></button>
+        <button class="tw-panel" style="--i:1;--c1:#ffe0cc;--c2:#ffb89f" data-cur aria-label="Open Tech Superpowers"><span class="tw-n mono">02 / SKILLS</span><span class="tw-t">Tech<br>Powers</span><span class="tw-go mono">Explore ↗</span></button>
+        <button class="tw-panel" style="--i:2;--c1:#c9f7e3;--c2:#8fe6c4" data-cur aria-label="Open TicketPilot"><span class="tw-n mono">03 / PROJECT</span><span class="tw-t">Ticket<br>Pilot</span><span class="tw-go mono">Explore ↗</span></button>
+        <button class="tw-panel" style="--i:3;--c1:#cfe2ff;--c2:#94b8ff" data-cur aria-label="Open PaperPilot"><span class="tw-n mono">04 / PROJECT</span><span class="tw-t">Paper<br>Pilot</span><span class="tw-go mono">Explore ↗</span></button>
+        <button class="tw-panel" style="--i:4;--c1:#fff4b8;--c2:#ffdc7a" data-cur aria-label="Open LLM Gateway"><span class="tw-n mono">05 / PROJECT</span><span class="tw-t">LLM<br>Gateway</span><span class="tw-go mono">Explore ↗</span></button>
+        <button class="tw-panel" style="--i:5;--c1:#ffd1e4;--c2:#ff9fc4" data-cur aria-label="Open Contact"><span class="tw-n mono">06 / CONTACT</span><span class="tw-t">Say<br>Hello</span><span class="tw-go mono">Explore ↗</span></button>
+        <div class="tw-band" aria-hidden="true"></div>
+      </div>
+      <div class="tw-pillar" aria-hidden="true"></div>
+    </div>
+    <div class="tw-ground" aria-hidden="true"></div>
+  </div>
+  <div class="tw-ui mono">
+    <button type="button" id="tw-prev" aria-label="Rotate left" data-cur>◀</button>
+    <span>Scroll to spin · drag · click a panel to explore</span>
+    <button type="button" id="tw-next" aria-label="Rotate right" data-cur>▶</button>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
@@ -396,6 +427,7 @@
 <script src="js/agent.js"></script>
 <script src="js/glass.js"></script>
 <script src="js/scratch.js"></script>
+<script src="js/tower.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
