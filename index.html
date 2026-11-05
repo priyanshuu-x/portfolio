@@ -40,9 +40,8 @@
   <a href="#top" class="logo" data-cur>PS<sup>®</sup></a>
   <div class="clock" aria-hidden="true">GREATER NOIDA // <b id="clock">--:--:--</b> IST</div>
   <nav class="links" id="links" aria-label="Primary">
-    <a href="#about" data-cur>About</a>
-    <a href="#skills" data-cur>Superpowers</a>
-    <a href="#work" data-cur>Projects</a>
+    <a href="#tower" data-cur>Tower</a>
+        <a href="#work" data-cur>Projects</a>
     <a href="#lab" data-cur class="hot">Break my agent</a>
     <a href="#contact" data-cur>Contact</a>
   </nav>
@@ -103,10 +102,8 @@
       <div class="tw-spin" id="tw-spin">
         <button class="tw-panel" style="--i:0;--c1:#e2d8ff;--c2:#b3a5f7" data-cur aria-label="Open About Me"><span class="tw-n mono">01 / ABOUT</span><span class="tw-t">About<br>Me</span><span class="tw-go mono">Explore ↗</span></button>
         <button class="tw-panel" style="--i:1;--c1:#ffe0cc;--c2:#ffb89f" data-cur aria-label="Open Tech Superpowers"><span class="tw-n mono">02 / SKILLS</span><span class="tw-t">Tech<br>Powers</span><span class="tw-go mono">Explore ↗</span></button>
-        <button class="tw-panel" style="--i:2;--c1:#c9f7e3;--c2:#8fe6c4" data-cur aria-label="Open TicketPilot"><span class="tw-n mono">03 / PROJECT</span><span class="tw-t">Ticket<br>Pilot</span><span class="tw-go mono">Explore ↗</span></button>
-        <button class="tw-panel" style="--i:3;--c1:#cfe2ff;--c2:#94b8ff" data-cur aria-label="Open PaperPilot"><span class="tw-n mono">04 / PROJECT</span><span class="tw-t">Paper<br>Pilot</span><span class="tw-go mono">Explore ↗</span></button>
-        <button class="tw-panel" style="--i:4;--c1:#fff4b8;--c2:#ffdc7a" data-cur aria-label="Open LLM Gateway"><span class="tw-n mono">05 / PROJECT</span><span class="tw-t">LLM<br>Gateway</span><span class="tw-go mono">Explore ↗</span></button>
-        <button class="tw-panel" style="--i:5;--c1:#ffd1e4;--c2:#ff9fc4" data-cur aria-label="Open Contact"><span class="tw-n mono">06 / CONTACT</span><span class="tw-t">Say<br>Hello</span><span class="tw-go mono">Explore ↗</span></button>
+        <button class="tw-panel" style="--i:2;--c1:#c9f7e3;--c2:#8fe6c4" data-cur aria-label="Open Projects"><span class="tw-n mono">03 / PROJECTS</span><span class="tw-t">The<br>Projects</span><span class="tw-go mono">Explore ↗</span></button>
+        <button class="tw-panel" style="--i:3;--c1:#ffd1e4;--c2:#ff9fc4" data-cur aria-label="Open Contact"><span class="tw-n mono">04 / CONTACT</span><span class="tw-t">Say<br>Hello</span><span class="tw-go mono">Explore ↗</span></button>
         <div class="tw-band" aria-hidden="true"></div>
       </div>
       <div class="tw-pillar" aria-hidden="true"></div>
@@ -120,70 +117,10 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="wrap">
-    <p class="eyebrow mono" data-r>01 — ABOUT ME</p>
-    <p class="about-text" id="about-text">I’m an AI engineer who ships Generative AI systems that survive contact with reality — multi-agent RAG pipelines, MCP tool-calling servers, and the evals, guardrails and observability that keep them honest. I measure every system for quality, latency and cost instead of assuming it works. Right now I’m finishing my B.Tech in Computer Science at Bennett University, in Greater Noida, India.</p>
-
-    <div class="stats">
-      <div class="stat" data-r>
-        <b><span data-to="3">0</span></b><span>shipped GenAI systems, end to end</span>
-      </div>
-      <div class="stat" data-r>
-        <b><span data-to="19">0</span>/<span data-to="19">0</span></b><span>adversarial eval cases, 0 wrong refunds</span>
-      </div>
-      <div class="stat" data-r>
-        <b><span data-to="0.89" data-dec="2">0</span></b><span>groundedness on a 30-question golden set</span>
-      </div>
-      <div class="stat" data-r>
-        <b><span data-to="3">0</span></b><span>rounds cleared · Flipkart GRiD 8.0 AI Engineering</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="skills" id="skills">
-  <i class="shape s1" aria-hidden="true"></i>
-  <div class="wrap">
-    <p class="eyebrow mono" data-r>02 — TECH SUPERPOWERS</p>
-    <h2 class="big" data-split>What I can do <em>that others can’t?</em></h2>
-
-    <ul class="powers">
-      <li class="power spot" data-r>
-        <span class="n mono">01</span>
-        <div class="p-main"><h3>Agents &amp; orchestration</h3><p>Stateful multi-agent graphs with least-privilege tools and a human in the loop where it matters.</p></div>
-        <div class="tags"><span>LangGraph</span><span>LangChain</span><span>MCP</span><span>ReAct</span><span>Tool calling</span><span>interrupt() HITL</span></div>
-      </li>
-      <li class="power spot" data-r>
-        <span class="n mono">02</span>
-        <div class="p-main"><h3>Retrieval &amp; RAG</h3><p>Hybrid dense + sparse search, reranking, and answers that cite their sources down to the page.</p></div>
-        <div class="tags"><span>Qdrant</span><span>pgvector</span><span>Chroma</span><span>FAISS</span><span>BM25</span><span>RRF</span><span>Docling</span></div>
-      </li>
-      <li class="power spot" data-r>
-        <span class="n mono">03</span>
-        <div class="p-main"><h3>Evals, guardrails &amp; observability</h3><p>If it isn’t measured, it isn’t shipped. LLM-as-judge suites, injection regression sets, full traces.</p></div>
-        <div class="tags"><span>DeepEval</span><span>G-Eval</span><span>LangSmith</span><span>Prompt-injection defence</span><span>PII redaction</span></div>
-      </li>
-      <li class="power spot" data-r>
-        <span class="n mono">04</span>
-        <div class="p-main"><h3>Backend &amp; shipping</h3><p>APIs that stream, services that Dockerize, pipelines that test themselves.</p></div>
-        <div class="tags"><span>Python</span><span>FastAPI</span><span>Docker</span><span>GitHub Actions</span><span>PostgreSQL</span><span>Redis</span><span>SQL</span></div>
-      </li>
-      <li class="power spot" data-r>
-        <span class="n mono">05</span>
-        <div class="p-main"><h3>Models &amp; ML foundations</h3><p>From PyTorch fundamentals to routing across hosted open models.</p></div>
-        <div class="tags"><span>PyTorch</span><span>Hugging Face</span><span>Groq</span><span>scikit-learn</span><span>Deep Learning</span><span>Prompt engineering</span></div>
-      </li>
-    </ul>
-  </div>
-</section>
-
 <!-- PROJECTS -->
 <section class="work" id="work">
   <div class="wrap">
-    <p class="eyebrow mono" data-r>03 — SELECTED PROJECTS</p>
+    <p class="eyebrow mono" data-r>01 — SELECTED PROJECTS</p>
     <h2 class="big" data-split>Built, broken, <em>measured.</em></h2>
     <div class="unlock-bar mono" data-r>
       <span><span class="hand" aria-hidden="true">☝</span> Every project is locked. Press and drag to scratch the foil.</span>
@@ -311,7 +248,7 @@
 <section class="lab" id="lab">
   <i class="shape sq s2" aria-hidden="true"></i><i class="shape s1" aria-hidden="true"></i>
   <div class="wrap">
-    <p class="eyebrow mono" data-r>04 — THE CREATIVE FEATURE</p>
+    <p class="eyebrow mono" data-r>02 — THE CREATIVE FEATURE</p>
     <h2 class="big" data-split>Try to <em>break</em> my agent.</h2>
     <p class="lab-lede" data-r>This is a live, in-browser miniature of how I build agents. You’re signed in as a customer. Ask for a refund, or try to talk the agent into something it shouldn’t do — prompt injection, someone else’s order, skipping human approval. Every attempt walks through the same guardrail → supervisor → investigator → policy → human → resolver pipeline.</p>
 
@@ -385,12 +322,12 @@
 <section class="proof" id="proof">
   <div class="wrap grid2">
     <div data-r>
-      <p class="eyebrow mono">05 — ACHIEVEMENTS</p>
+      <p class="eyebrow mono">03 — ACHIEVEMENTS</p>
       <h3 class="mid">Flipkart GRiD 8.0<br><em>AI Engineering Track</em></h3>
       <p class="muted">Cleared Rounds 1–3 of a national-level engineering challenge — profile screening, a proctored coding assessment and a business case-study round.</p>
     </div>
     <div data-r>
-      <p class="eyebrow mono">06 — EDUCATION</p>
+      <p class="eyebrow mono">04 — EDUCATION</p>
       <h3 class="mid">Bennett University<br><em>B.Tech, Computer Science &amp; Engineering</em></h3>
       <p class="muted">Expected May 2027. Greater Noida, India.</p>
     </div>
@@ -401,7 +338,7 @@
 <section class="contact" id="contact">
   <i class="shape s3" aria-hidden="true"></i><i class="shape sq s1" aria-hidden="true"></i>
   <div class="wrap">
-    <p class="eyebrow mono" data-r>07 — LET’S BUILD</p>
+    <p class="eyebrow mono" data-r>05 — LET’S BUILD</p>
     <h2 class="huge" data-split>Have an agent that needs <em>adult supervision?</em></h2>
     <a class="mail" href="mailto:priyanshuuux@gmail.com" data-mag data-cur>priyanshuuux@gmail.com <i>↗</i></a>
     <div class="social mono">
