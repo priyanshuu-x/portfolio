@@ -7,7 +7,6 @@
   const rig = document.getElementById('tw-rig');
   const spin = document.getElementById('tw-spin');
   const panels = [...stage.querySelectorAll('.tw-panel')];
-  const band = stage.querySelector('.tw-band');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const N = panels.length, STEP = 360 / N;
 
@@ -33,14 +32,6 @@
       list: ['priyanshuuux@gmail.com', 'github.com/priyanshuu-x', 'linkedin.com/in/priyanshusingh-aidev'],
       metrics: [], cta: [['Email me', 'mailto:priyanshuuux@gmail.com'], ['LinkedIn ↗', 'https://linkedin.com/in/priyanshusingh-aidev', 'alt']] },
   ];
-
-  /* rotating text band */
-  for (let k = 0; k < 16; k++) {
-    const s = document.createElement('span');
-    s.style.setProperty('--k', k);
-    s.textContent = k % 2 ? 'AGENT TOWER ✦' : 'OPEN TO INTERNSHIPS';
-    band.appendChild(s);
-  }
 
   /* responsive scale */
   function fit() {
