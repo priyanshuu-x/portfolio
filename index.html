@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/glass.css">
   <link rel="stylesheet" href="css/type.css">
+  <link rel="stylesheet" href="css/scratch.css">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -152,6 +153,12 @@
   <div class="wrap">
     <p class="eyebrow mono" data-r>03 — SELECTED PROJECTS</p>
     <h2 class="big" data-split>Built, broken, <em>measured.</em></h2>
+    <div class="unlock-bar mono" data-r>
+      <span><span class="hand" aria-hidden="true">☝</span> Every project is locked. Press and drag to scratch the foil.</span>
+      <span><b id="unlock-count">0</b> / <b id="unlock-total">3</b> unlocked</span>
+      <button type="button" id="reveal-all" data-cur>Reveal all</button>
+      <span id="unlock-done">✦ All projects unlocked</span>
+    </div>
   </div>
 
   <div class="stack wrap">
@@ -387,6 +394,7 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 <script src="js/agent.js"></script>
 <script src="js/glass.js"></script>
+<script src="js/scratch.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
