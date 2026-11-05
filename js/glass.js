@@ -58,6 +58,7 @@
     new T.MeshBasicMaterial({ map: tex, alphaTest: 0.3, color: 0x3d2f80, toneMapped: false })
   );
   back.position.z = -2.2;
+  back.visible = false; // backdrop text removed: it competed with the name
   scene.add(back);
 
   /* glass */
