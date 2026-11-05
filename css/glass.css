@@ -1,0 +1,51 @@
+/* ===== GLASS + 3D LAYER (violet / black / white) ===== */
+:root{--glass:rgba(255,255,255,.055);--glass-b:rgba(255,255,255,.16);--deep:#7c3aed}
+body{background:radial-gradient(1200px 700px at 85% -10%,rgba(124,58,237,.18),transparent 60%),var(--bg)}
+.nav .links,.stat,.console,.orders,.rules,.score,.viz,.float-hint,.gh,.social a,.tags span,.chips button,.node{
+  -webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%)}
+.stats{background:transparent;border:0;gap:14px}
+.stat{background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border:1px solid var(--glass-b);border-radius:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -20px 40px -30px rgba(167,139,250,.35),0 20px 50px -25px #000}
+.card{background:linear-gradient(160deg,rgba(32,24,52,.92),rgba(12,10,20,.94));border-color:var(--glass-b);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 -30px 60px -20px rgba(0,0,0,.8),0 0 80px -30px rgba(124,58,237,.5)}
+.viz{background:radial-gradient(circle at 50% 30%,rgba(167,139,250,.22),transparent 70%),rgba(255,255,255,.035);border-color:var(--glass-b);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 0 40px rgba(124,58,237,.12)}
+.nd{fill:rgba(255,255,255,.06);stroke:rgba(255,255,255,.35)}
+.nd.acc{fill:rgba(167,139,250,.22);stroke:var(--acc)}
+.console{background:linear-gradient(160deg,rgba(24,18,42,.78),rgba(8,8,14,.85));border-color:rgba(167,139,250,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 40px 100px -30px rgba(124,58,237,.55)}
+.orders,.rules,.score{background:var(--glass);border-color:var(--glass-b);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.score div{background:transparent}
+.nav .links{padding:5px;border:1px solid var(--glass-b);border-radius:99px;background:rgba(255,255,255,.06);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.cta{background:linear-gradient(135deg,#ddd6fe,var(--acc) 45%,var(--deep));color:#0a0618;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 12px 40px -10px rgba(124,58,237,.8)}
+.cta:hover{background:#fff}
+.float-hint{background:rgba(167,139,250,.28);border:1px solid rgba(221,214,254,.5);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 10px 40px -8px rgba(124,58,237,.8)}
+.links a.hot{background:rgba(255,255,255,.92)}
+.tags span,.chips button{background:rgba(255,255,255,.04)}
+.node.on,.term-form button,.approve .yes{color:#0a0618}
+.marquee{background:rgba(255,255,255,.03)}
+.hero-name .thin{-webkit-text-stroke:1.5px rgba(255,255,255,.9)}
+.metrics b,.stat b,.score b{background:linear-gradient(180deg,#fff,var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent}
+.metrics b span,.stat b span{color:transparent}
+
+/* WebGL glass canvas in hero */
+#glass{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.hero-foot,.hero-meta{z-index:4}
+.hero .orb{opacity:.38}
+
+/* floating CSS glass shapes */
+.shape{position:absolute;pointer-events:none;border-radius:50%;z-index:0;
+  background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,.03) 45%,rgba(167,139,250,.2));
+  border:1px solid rgba(255,255,255,.28);
+  -webkit-backdrop-filter:blur(10px) saturate(180%);backdrop-filter:blur(10px) saturate(180%);
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.55),inset 0 -14px 30px rgba(124,58,237,.35),0 30px 60px -20px rgba(76,29,149,.8);
+  animation:bob 9s ease-in-out infinite alternate;will-change:transform}
+.shape.sq{border-radius:28%}
+.shape::after{content:"";position:absolute;top:10%;left:14%;width:38%;height:22%;border-radius:50%;background:linear-gradient(rgba(255,255,255,.7),transparent);filter:blur(2px);opacity:.7}
+@keyframes bob{from{translate:0 -14px;rotate:-6deg}to{translate:0 18px;rotate:8deg}}
+.s1{width:clamp(90px,14vw,200px);aspect-ratio:1;right:6%;top:6%}
+.s2{width:clamp(60px,8vw,120px);aspect-ratio:1;left:4%;bottom:10%;animation-delay:-3s}
+.s3{width:clamp(80px,11vw,170px);aspect-ratio:1;right:10%;bottom:8%;animation-delay:-5s}
+.lab,.contact,.skills{overflow:clip}
+
+/* 3D tilt */
+.tilt{transition:transform .25s var(--ease);transform-style:preserve-3d;will-change:transform}
+.tilt.live{transition:transform .08s linear}
+@media (max-width:980px){.shape{opacity:.7}}
+@media (prefers-reduced-motion:reduce){.shape{animation:none}}

@@ -145,6 +145,21 @@
     }));
   }
 
+
+  /* ---------- 3D tilt on glass panels ---------- */
+  if (fine && !reduce) {
+    $$('.viz,.stat,.orders,.rules,.score').forEach((el) => {
+      el.classList.add('tilt');
+      el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+        el.classList.add('live');
+        el.style.transform = `perspective(900px) rotateX(${-py * 10}deg) rotateY(${px * 12}deg) translateZ(6px)`;
+      });
+      el.addEventListener('pointerleave', () => { el.classList.remove('live'); el.style.transform = ''; });
+    });
+  }
+
   /* ---------- clock (IST) ---------- */
   const clock = $('#clock');
   const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -205,7 +220,7 @@
       if (a.y < 0 || a.y > H) a.vy *= -1;
       const dx = a.x - px, dy = a.y - py, d = Math.hypot(dx, dy);
       if (d < 180 * dpr && d > 1) { a.x += (dx / d) * 0.6; a.y += (dy / d) * 0.6; }
-      cx.fillStyle = 'rgba(255,150,70,.7)';
+      cx.fillStyle = 'rgba(196,181,253,.7)';
       cx.beginPath(); cx.arc(a.x, a.y, 1.6 * dpr, 0, 6.283); cx.fill();
     }
     for (let i = 0; i < nodes.length; i++) {
@@ -213,14 +228,14 @@
       for (let j = i + 1; j < nodes.length; j++) {
         const b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
         if (d < LINK) {
-          cx.strokeStyle = `rgba(255,122,26,${(1 - d / LINK) * 0.35})`;
+          cx.strokeStyle = `rgba(167,139,250,${(1 - d / LINK) * 0.35})`;
           cx.lineWidth = dpr * 0.7;
           cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke();
         }
       }
       const d = Math.hypot(a.x - px, a.y - py);
       if (d < 200 * dpr) {
-        cx.strokeStyle = `rgba(255,200,120,${(1 - d / (200 * dpr)) * 0.6})`;
+        cx.strokeStyle = `rgba(221,214,254,${(1 - d / (200 * dpr)) * 0.6})`;
         cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(px, py); cx.stroke();
       }
     }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Priyanshu Singh — AI Engineer</title>
   <meta name="description" content="Priyanshu Singh is an AI engineer building production-grade multi-agent RAG systems, MCP tool-calling servers and LLM guardrails. Try to break his agent.">
-  <meta name="theme-color" content="#08080a">
+  <meta name="theme-color" content="#050507">
   <meta property="og:title" content="Priyanshu Singh — AI Engineer">
   <meta property="og:description" content="Agents that can't be talked into doing something stupid. Try to break mine.">
   <meta property="og:type" content="website">
@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/glass.css">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -49,6 +50,7 @@
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="orb" id="orb" aria-hidden="true"></div>
+  <canvas id="glass" aria-hidden="true"></canvas>
   <div class="hero-meta">
     <span class="mono dim">[ AI ENGINEER // GENAI + LLM APPS ]</span>
     <span class="mono dim avail"><i class="dot"></i> OPEN TO INTERNSHIPS · 2026–27</span>
@@ -109,6 +111,7 @@
 
 <!-- SKILLS -->
 <section class="skills" id="skills">
+  <i class="shape s1" aria-hidden="true"></i>
   <div class="wrap">
     <p class="eyebrow mono" data-r>02 — TECH SUPERPOWERS</p>
     <h2 class="big" data-split>What I can do <em>that others can’t?</em></h2>
@@ -266,6 +269,7 @@
 
 <!-- LAB: the creative feature -->
 <section class="lab" id="lab">
+  <i class="shape sq s2" aria-hidden="true"></i><i class="shape s1" aria-hidden="true"></i>
   <div class="wrap">
     <p class="eyebrow mono" data-r>04 — THE CREATIVE FEATURE</p>
     <h2 class="big" data-split>Try to <em>break</em> my agent.</h2>
@@ -355,6 +359,7 @@
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
+  <i class="shape s3" aria-hidden="true"></i><i class="shape sq s1" aria-hidden="true"></i>
   <div class="wrap">
     <p class="eyebrow mono" data-r>07 — LET’S BUILD</p>
     <h2 class="huge" data-split>Have an agent that needs <em>adult supervision?</em></h2>
@@ -378,7 +383,9 @@
 <a href="#lab" class="float-hint mono" id="float-hint" data-cur><span class="pulse"></span> Try to break my agent</a>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 <script src="js/agent.js"></script>
+<script src="js/glass.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
