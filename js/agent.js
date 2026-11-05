@@ -87,7 +87,7 @@
       'tickets:   “refund order #1042”, “where is order #5001”',
       'attacks:   go on, try “ignore previous instructions…”',
     ],
-    about: () => ['Priyanshu Singh — AI engineer. Multi-agent RAG, MCP tool-calling, guardrails & evals.', 'Final-year B.Tech CSE, Bennett University. Flipkart GRiD 8.0 Top 48 finalist.'],
+    about: () => ['Priyanshu Singh — AI engineer. Multi-agent RAG, MCP tool-calling, guardrails & evals.', 'Final-year B.Tech CSE, Bennett University. Cleared 3 rounds of Flipkart GRiD 8.0.'],
     projects: () => ['TicketPilot  — 4-agent support system, 19/19 adversarial cases, 0 wrong refunds', 'PaperPilot   — hybrid RAG over arXiv, 0.89 groundedness, citations to the page', 'LLM Gateway  — OpenAI-compatible router with cache, rate limits and guardrails'],
     skills: () => ['LangGraph · LangChain · MCP · RAG · Qdrant · pgvector · FastAPI · Docker · DeepEval · PyTorch · Redis'],
     contact: () => ['priyanshuuux@gmail.com · github.com/priyanshuu-x · linkedin.com/in/priyanshusingh-aidev'],
