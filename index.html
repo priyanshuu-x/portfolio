@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="css/sky.css">
   <link rel="stylesheet" href="css/tower.css">
   <link rel="stylesheet" href="css/stage.css">
+  <link rel="stylesheet" href="css/glance.css">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -41,6 +42,7 @@
   <div class="clock" aria-hidden="true">GREATER NOIDA // <b id="clock">--:--:--</b> IST</div>
   <nav class="links" id="links" aria-label="Primary">
     <a href="#tower" data-cur>Tower</a>
+    <a href="#about" data-cur>About</a>
         <a href="#work" data-cur>Projects</a>
     <a href="#lab" data-cur class="hot">Break my agent</a>
   </nav>
@@ -112,6 +114,29 @@
     <button type="button" id="tw-prev" aria-label="Rotate left" data-cur>◀</button>
     <span>Scroll to spin · drag · click a panel to explore</span>
     <button type="button" id="tw-next" aria-label="Rotate right" data-cur>▶</button>
+  </div>
+  <div class="wrap glance">
+    <article class="gl-card" id="about" aria-labelledby="gl-about" data-r>
+      <p class="eyebrow mono">ABOUT ME</p>
+      <h3 id="gl-about">An AI engineer who measures everything.</h3>
+      <p>I’m Priyanshu Singh. I build Generative AI systems that survive contact with reality: multi-agent RAG pipelines, MCP tool-calling servers, and the evals, guardrails and observability that keep them honest. I own projects end to end, from retrieval and agent orchestration to Dockerized deployment and CI/CD.</p>
+      <ul class="gl-facts mono">
+        <li>B.Tech, Computer Science &amp; Engineering — Bennett University (expected May 2027)</li>
+        <li>Based in Greater Noida, India</li>
+        <li>Cleared 3 rounds of Flipkart GRiD 8.0, AI Engineering Track</li>
+      </ul>
+    </article>
+    <article class="gl-card" id="skills" aria-labelledby="gl-skills" data-r>
+      <p class="eyebrow mono">SKILLS · TECH SUPERPOWERS</p>
+      <h3 id="gl-skills">Agents, retrieval, evals, shipping.</h3>
+      <dl class="gl-skills">
+        <div><dt>Agents &amp; orchestration</dt><dd class="tags"><span>LangGraph</span><span>LangChain</span><span>MCP</span><span>ReAct</span><span>Tool calling</span><span>Human-in-the-loop</span></dd></div>
+        <div><dt>Retrieval &amp; RAG</dt><dd class="tags"><span>Qdrant</span><span>pgvector</span><span>Chroma</span><span>FAISS</span><span>BM25</span><span>RRF</span><span>Docling</span></dd></div>
+        <div><dt>Evals, guardrails &amp; observability</dt><dd class="tags"><span>DeepEval</span><span>G-Eval</span><span>LangSmith</span><span>Prompt-injection defence</span><span>PII redaction</span></dd></div>
+        <div><dt>Backend &amp; shipping</dt><dd class="tags"><span>Python</span><span>FastAPI</span><span>Docker</span><span>GitHub Actions</span><span>PostgreSQL</span><span>Redis</span><span>SQL</span></dd></div>
+        <div><dt>Models &amp; ML</dt><dd class="tags"><span>PyTorch</span><span>Hugging Face</span><span>Groq</span><span>scikit-learn</span><span>Prompt engineering</span></dd></div>
+      </dl>
+    </article>
   </div>
 </section>
 

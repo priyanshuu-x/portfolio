@@ -1,11 +1,13 @@
 # Priyanshu Singh — Portfolio
 
-Personal portfolio for the **AWS Student Builder Challenge**. Plain HTML/CSS/JS — no build step.
+Personal portfolio for the **AWS Student Builder Challenge**. Plain HTML, CSS and JavaScript. No build step, no backend.
+Hosted on AWS Amplify Hosting.
 
-**Creative feature: "Try to break my agent"** — a live, in-browser miniature of a multi-agent support pipeline
-(Guardrail → Supervisor → Investigator → Policy → Human approval → Resolver). Visitors request refunds, hit a
-human-in-the-loop approval gate, or try prompt injection and cross-customer lookups and watch the pipeline stop them.
-Hints: pulsing hero button, a "Break my agent" nav item, and a floating pill that follows you down the page.
+## Highlights
+- **Try to break my agent**: an in-browser miniature of a multi-agent support pipeline (guardrails, ownership checks, human approval).
+- **Agent Tower**: a 3D CSS carousel of About, Skills, Projects and Contact that spins on scroll or drag.
+- **Glass project stage**: three projects floating on a frosted-glass panel.
+- Hero glass sculpture in WebGL (Three.js), smooth scrolling (Lenis).
 
 ## Run locally
 ```bash
@@ -13,19 +15,18 @@ python -m http.server 5180
 # open http://localhost:5180
 ```
 
-## Deploy on AWS Amplify Hosting
-1. Create a GitHub repo and push this folder (`git init && git add . && git commit -m "portfolio" && git push`).
-2. AWS Console → **AWS Amplify** → *Create new app* → **GitHub** → pick the repo and branch `main`.
-3. Build settings: Amplify auto-detects `amplify.yml` (no build, publishes the repo root).
-4. Save and deploy. Every `git push` redeploys; the site is served over HTTPS through Amazon CloudFront.
-5. Copy the `https://main.<id>.amplifyapp.com` URL into your challenge submission.
+## Deploy (AWS Amplify Hosting)
+Connect this repo in AWS Amplify, branch `main`, leave the build command empty and the output directory as `/`.
+Each push to `main` redeploys.
 
 ## Structure
 ```
 index.html        page markup and content
-css/style.css     design system, layout, responsive rules
-js/main.js        loader, smooth scroll (Lenis), reveals, cursor, network canvas
-js/agent.js       the creative feature (agent pipeline simulation)
-amplify.yml       Amplify build spec
-SUBMISSION.md     draft write-up for the hackathon "Your project" page
+css/              style, glass, type, sky (theme), tower, stage, glance
+js/main.js        loader, smooth scroll, reveals, cursor, network canvas, tilt
+js/glass.js       WebGL glass hero
+js/tower.js       3D tower and fly-out sheets
+js/stage.js       glass project stage
+js/agent.js       "Try to break my agent"
+favicon.svg
 ```
