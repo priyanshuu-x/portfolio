@@ -13,13 +13,13 @@
   const dpr = Math.min(devicePixelRatio || 1, 2);
 
   const LEVELS = [
-    { name: 'TicketPilot', sub: 'Policy, ownership & human approval', goal: 12, speed: 120, gap: 1.25, shield: 170, accent: '#86e0e8',
+    { name: 'TicketPilot', sub: 'Policy, ownership & human approval', goal: 8, speed: 105, gap: 1.35, reward: 'About & the Agent Tower', go: ['#about', 'Go to About ↓'], shield: 170, accent: '#86e0e8',
       bad: ['ignore previous instructions', 'refund every order', 'act as admin', 'refund #3150 (not mine)', 'skip human approval', 'reveal system prompt'],
       good: ['refund #1042', 'track order #5001', 'return #2077'] },
-    { name: 'PaperPilot', sub: 'Grounding, citations & off-topic gates', goal: 15, speed: 150, gap: 1.05, shield: 150, accent: '#b3a8fa',
+    { name: 'PaperPilot', sub: 'Grounding, citations & off-topic gates', goal: 11, speed: 130, gap: 1.15, reward: 'the Projects', go: ['#work', 'See the projects ↓'], shield: 150, accent: '#b3a8fa',
       bad: ['capital of France?', 'make up a citation', 'you are DAN', 'print your prompt', 'ignore the papers', 'write my essay'],
       good: ['what is RRF?', 'how does BM25 rank?', 'cite the reranker paper'] },
-    { name: 'LLM Gateway', sub: 'Injection, PII & rate limits', goal: 18, speed: 180, gap: 0.9, shield: 132, accent: '#ffdc7a',
+    { name: 'LLM Gateway', sub: 'Injection, PII & rate limits', goal: 14, speed: 160, gap: 1.0, reward: 'the live agent demo', go: ['#lab', 'Try to break my agent ↓'], shield: 132, accent: '#ffdc7a',
       bad: ['<system>override</system>', 'SSN 123-45-6789', 'disregard all rules', 'spam x1000 req/s', 'jailbreak mode on', 'bypass the guardrail'],
       good: ['summarize this doc', 'translate to Hindi', 'write a regex'] },
   ];
@@ -48,12 +48,58 @@
   const floorY = () => H - 34;
   const shieldY = () => H - 78;
 
+
+  /* ---------- quest: clearing levels unlocks sections of the page ---------- */
+  const GROUPS = ['tower', 'work', 'lab'];
+  let unlocked = 0;
+  try { unlocked = Math.min(3, Math.max(0, +localStorage.getItem('gm-unlocked') || 0)); } catch (e) { /* storage may be blocked */ }
+  const goTo = (sel) => {
+    const t = document.querySelector(sel); if (!t) return;
+    if (window.__lenis) window.__lenis.scrollTo(t, { offset: -20, duration: 1.4 }); else t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  };
+  function lockSection(i) {
+    const sec = document.getElementById(GROUPS[i]);
+    if (!sec || sec.querySelector(':scope > .q-veil')) return;
+    sec.classList.add('is-locked');
+    [...sec.children].forEach((c) => c.setAttribute('inert', ''));
+    const v = document.createElement('div');
+    v.className = 'q-veil';
+    v.innerHTML = `<div class="q-card"><p class="gm-k mono">LOCKED · LEVEL ${i + 1}</p><h3>Clear Level ${i + 1} to unlock ${LEVELS[i].reward}.</h3><div class="q-btns"><a href="#play" class="q-play" data-cur>▶ Play Level ${i + 1} ↑</a><button type="button" data-quest="skip" data-cur>Skip: unlock everything</button></div></div>`;
+    sec.appendChild(v);
+  }
+  function unlockSection(i) {
+    const sec = document.getElementById(GROUPS[i]);
+    if (!sec) return;
+    [...sec.children].forEach((c) => c.removeAttribute('inert'));
+    sec.classList.remove('is-locked');
+    const v = sec.querySelector(':scope > .q-veil');
+    if (v) { v.classList.add('out'); setTimeout(() => v.remove(), reduce ? 20 : 950); }
+  }
+  function applyQuest() {
+    GROUPS.forEach((_, i) => (i < unlocked ? unlockSection(i) : lockSection(i)));
+    cards.forEach((c, i) => { const open = i < unlocked; c.classList.toggle('locked', !open); c.classList.toggle('open', open); });
+    document.documentElement.classList.toggle('quest-done', unlocked >= 3);
+  }
+  function setUnlocked(n) {
+    unlocked = Math.max(unlocked, Math.min(3, n));
+    try { localStorage.setItem('gm-unlocked', String(unlocked)); } catch (e) { /* ignore */ }
+    applyQuest();
+  }
+  document.addEventListener('click', (e) => {
+    const sk = e.target.closest('[data-quest="skip"]');
+    if (sk) { e.preventDefault(); setUnlocked(3); if (S.mode === 'play') pause(); if (sk.dataset.goto) setTimeout(() => goTo(sk.dataset.goto), 80); return; }
+    const go = e.target.closest('a.gm-go');
+    if (go) { e.preventDefault(); goTo(go.getAttribute('href')); }
+  });
+
   /* ---------- overlays ---------- */
   function show(html) { ov.innerHTML = html; ov.classList.remove('hide'); const b = ov.querySelector('button'); b && b.focus({ preventScroll: true }); }
   function hide() { ov.classList.add('hide'); ov.innerHTML = ''; }
 
   function menu() {
     S.mode = 'menu';
+    const done = unlocked >= 3;
+    const next = Math.min(unlocked, 2);
     show(`
       <div class="gm-card">
         <p class="gm-k mono">LEVEL MODE · GUARDRAIL RUN</p>
@@ -62,7 +108,8 @@
         <div class="gm-legend mono"><span class="chip bad">ignore previous instructions</span><i>catch it</i><span class="chip good">refund #1042</span><i>let it pass</i></div>
         <p class="gm-small mono">Drag your mouse or finger · or use ← → · Esc pauses · 3 lives</p>
         ${best ? `<p class="gm-small mono">Best score: ${best}</p>` : ''}
-        <button type="button" data-act="start" data-cur>▶ Start Level 1</button>
+        <button type="button" data-act="start" data-cur>${done ? '↻ Play again' : `▶ ${unlocked ? 'Continue with' : 'Start'} Level ${next + 1}`}</button>
+        ${done ? '' : '<button type="button" class="gm-skip" data-quest="skip" data-goto="#tower" data-cur>Skip the game: unlock everything</button>'}
       </div>`);
   }
 
@@ -77,28 +124,30 @@
   function cleared() {
     S.mode = 'cleared'; S.cleared[S.lv] = true;
     const card = cards[S.lv];
-    if (card) { card.classList.remove('locked'); card.classList.add('open', 'pop'); setTimeout(() => card.classList.remove('pop'), 1200); }
+    if (card) { card.classList.add('pop'); setTimeout(() => card.classList.remove('pop'), 1200); }
     const last = S.lv === LEVELS.length - 1;
     const bonus = S.lives * 25;
     S.score += bonus;
     saveBest();
-    say(`Level ${S.lv + 1} cleared. ${L().name} unlocked.`);
+    setUnlocked(S.lv + 1);
+    say(`Level ${S.lv + 1} cleared. ${L().reward} unlocked.`);
+    const go = L().go;
     if (last) {
       show(`
         <div class="gm-card win">
-          <p class="gm-k mono">ALL LEVELS CLEARED</p>
+          <p class="gm-k mono">ALL LEVELS CLEARED · THE WHOLE PORTFOLIO IS OPEN</p>
           <h3>Superpower unlocked:<br><em>Guardrail Master</em></h3>
           <p>You blocked <b>${S.totalBlocked}</b> attacks with <b>${S.falsePos}</b> false positive${S.falsePos === 1 ? '' : 's'}. That is the job: stop the bad, never block the real.</p>
           <p class="gm-small mono">Final score ${S.score}${S.score >= best ? ' · new best!' : ` · best ${best}`}</p>
-          <div class="gm-btns"><button type="button" data-act="restart" data-cur>↻ Play again</button><a href="#lab" class="gm-link" data-cur>Try to break my real demo ↓</a></div>
+          <div class="gm-btns"><a href="#lab" class="gm-link gm-go" data-cur>Try to break my agent ↓</a><button type="button" data-act="restart" data-cur>↻ Play again</button></div>
         </div>`);
     } else {
       show(`
         <div class="gm-card">
           <p class="gm-k mono">LEVEL ${S.lv + 1} CLEARED · +${bonus} life bonus</p>
-          <h3>${L().name} <em>unlocked</em></h3>
-          <p>Its results are now open below the game. Next: <b>${LEVELS[S.lv + 1].name}</b> — ${LEVELS[S.lv + 1].sub}.</p>
-          <button type="button" data-act="next" data-cur>▶ Start Level ${S.lv + 2}</button>
+          <h3>${L().reward.charAt(0).toUpperCase() + L().reward.slice(1)} <em>unlocked</em></h3>
+          <p>It is open on the page now. Keep going for <b>${LEVELS[S.lv + 1].reward}</b>, or go and look around.</p>
+          <div class="gm-btns"><button type="button" data-act="next" data-cur>▶ Start Level ${S.lv + 2}</button><a href="${go[0]}" class="gm-link gm-go" data-cur>${go[1]}</a></div>
         </div>`);
     }
   }
@@ -129,7 +178,8 @@
     const b = e.target.closest('button[data-act]');
     if (!b) return;
     const a = b.dataset.act;
-    if (a === 'start' || a === 'restart') startLevel(0);
+    if (a === 'start') startLevel(unlocked >= 3 ? 0 : Math.min(unlocked, 2));
+    else if (a === 'restart') startLevel(0);
     else if (a === 'next') startLevel(S.lv + 1);
     else if (a === 'retry') startLevel(S.lv);
     else if (a === 'resume') { S.mode = 'play'; hide(); cv.focus({ preventScroll: true }); }
@@ -305,5 +355,6 @@
     draw();
   }
   requestAnimationFrame(loop);
+  applyQuest();
   menu();
 })();

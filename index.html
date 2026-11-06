@@ -43,11 +43,11 @@
   <a href="#top" class="logo" data-cur>PS<sup>®</sup></a>
   <div class="clock" aria-hidden="true">GREATER NOIDA // <b id="clock">--:--:--</b> IST</div>
   <nav class="links" id="links" aria-label="Primary">
+    <a href="#play" data-cur>Play</a>
     <a href="#tower" data-cur>Tower</a>
     <a href="#about" data-cur>About</a>
     <a href="#skills" data-cur>Skills</a>
-        <a href="#work" data-cur>Projects</a>
-    <a href="#play" data-cur>Play</a>
+    <a href="#work" data-cur>Projects</a>
     <a href="#lab" data-cur class="hot">Break my agent</a>
   </nav>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
@@ -80,10 +80,10 @@
       <li>Cleared 3 rounds of Flipkart GRiD 8.0</li>
     </ul>
     <div class="cta-col">
-      <a href="#lab" class="cta" data-mag data-cur>
-        <span class="pulse"></span> Try to break my agent <i>→</i>
+      <a href="#play" class="cta" data-mag data-cur>
+        <span class="pulse"></span> Play to unlock the portfolio <i>↓</i>
       </a>
-      <a href="#play" class="cta-alt mono" data-cur>or play the game: clear the levels →</a>
+      <button type="button" class="cta-alt mono" data-quest="skip" data-goto="#tower" data-cur>or skip the game: show me everything →</button>
     </div>
   </div>
   <div class="scroll-hint mono dim" aria-hidden="true"><span></span> SCROLL</div>
@@ -96,6 +96,40 @@
     <span>LangGraph</span><span>MCP</span><span>RAG</span><span>FastAPI</span><span>Qdrant</span><span>pgvector</span><span>DeepEval</span><span>Docker</span><span>Redis</span><span>PyTorch</span><span>LangSmith</span><span>Guardrails</span>
   </div>
 </div>
+
+<!-- PLAY: Guardrail Run (levels unlock the portfolio) -->
+<section class="play" id="play" aria-labelledby="play-h">
+  <div class="wrap">
+    <p class="eyebrow mono" data-r>START HERE — LEVEL MODE</p>
+    <h2 class="big" id="play-h" data-split>Clear the levels. <em>Unlock the portfolio.</em></h2>
+    <p class="lab-lede" data-r>A tiny game about my day job. Attacks fall from the sky: catch them with your guardrail, but let real users through. Clear <b>Level 1</b> to unlock About and the Agent Tower, <b>Level 2</b> for the Projects, and <b>Level 3</b> for the live agent demo. Short on time? <button type="button" class="skip-link" data-quest="skip" data-goto="#tower" data-cur>Skip the game and unlock everything →</button></p>
+
+    <div class="gm" data-r>
+      <div class="gm-frame">
+        <canvas id="gm-canvas" width="960" height="540" tabindex="0" aria-label="Guardrail Run, a mouse, touch and keyboard game. Move the guardrail left and right to catch attacks and let real users pass. It is optional: use the skip button to unlock everything."></canvas>
+        <div class="gm-ov" id="gm-ov"></div>
+      </div>
+      <p class="sr-only" id="gm-live" aria-live="polite"></p>
+      <ul class="gm-levels">
+        <li class="gl locked" data-lv="0">
+          <span class="gl-n mono">LEVEL 1 · TICKETPILOT RULES</span><h3>About &amp; the Tower</h3><p class="gl-sub">Who I am, my skills, and the 3D agent tower</p>
+          <p class="gl-lock">LOCKED · CLEAR LEVEL 1</p>
+          <div class="gl-open"><p class="gl-ok mono">✓ UNLOCKED</p><div class="gl-links"><a href="#about" data-cur>Go to About ↓</a><a href="#tower" data-cur>Spin the tower ↓</a></div></div>
+        </li>
+        <li class="gl locked" data-lv="1">
+          <span class="gl-n mono">LEVEL 2 · PAPERPILOT RULES</span><h3>The Projects</h3><p class="gl-sub">TicketPilot, PaperPilot and LLM Gateway on the glass stage</p>
+          <p class="gl-lock">LOCKED · CLEAR LEVEL 2</p>
+          <div class="gl-open"><p class="gl-ok mono">✓ UNLOCKED</p><div class="gl-links"><a href="#work" data-cur>See the projects ↓</a></div></div>
+        </li>
+        <li class="gl locked" data-lv="2">
+          <span class="gl-n mono">LEVEL 3 · LLM GATEWAY RULES</span><h3>The live agent demo</h3><p class="gl-sub">Try to break a real multi-agent pipeline</p>
+          <p class="gl-lock">LOCKED · CLEAR LEVEL 3</p>
+          <div class="gl-open"><p class="gl-ok mono">✓ UNLOCKED</p><div class="gl-links"><a href="#lab" data-cur>Try to break my agent ↓</a></div></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- TOWER -->
 <section class="tower" id="tower">
@@ -292,45 +326,11 @@
   </div>
 </section>
 
-<!-- PLAY: Guardrail Run -->
-<section class="play" id="play" aria-labelledby="play-h">
-  <div class="wrap">
-    <p class="eyebrow mono" data-r>02 — LEVEL MODE</p>
-    <h2 class="big" id="play-h" data-split>Clear the levels. <em>Unlock the projects.</em></h2>
-    <p class="lab-lede" data-r>A tiny game about my day job. Attacks fall from the sky: catch them with your guardrail, but let real users through. Each level is one of my projects, and clearing it unlocks its results. <a class="skip-link" href="#lab">Skip the game ↓</a></p>
-
-    <div class="gm" data-r>
-      <div class="gm-frame">
-        <canvas id="gm-canvas" width="960" height="540" tabindex="0" aria-label="Guardrail Run, a mouse, touch and keyboard game. Move the guardrail left and right to catch attacks and let real users pass. It is optional; skip it with the link above."></canvas>
-        <div class="gm-ov" id="gm-ov"></div>
-      </div>
-      <p class="sr-only" id="gm-live" aria-live="polite"></p>
-      <ul class="gm-levels">
-        <li class="gl locked" data-lv="0">
-          <span class="gl-n mono">LEVEL 1</span><h3>TicketPilot</h3><p class="gl-sub">Policy, ownership &amp; human approval</p>
-          <p class="gl-lock">🔒 LOCKED · CLEAR THE LEVEL</p>
-          <div class="gl-open"><div class="gl-m"><div><b>19/19</b><small>correct outcomes</small></div><div><b>0</b><small>wrong refunds</small></div><div><b>51</b><small>tests in CI</small></div></div><a href="https://github.com/priyanshuu-x/ticketpilot" target="_blank" rel="noopener" data-cur>View on GitHub ↗</a></div>
-        </li>
-        <li class="gl locked" data-lv="1">
-          <span class="gl-n mono">LEVEL 2</span><h3>PaperPilot</h3><p class="gl-sub">Grounding, citations &amp; off-topic gates</p>
-          <p class="gl-lock">🔒 LOCKED · CLEAR THE LEVEL</p>
-          <div class="gl-open"><div class="gl-m"><div><b>0.89</b><small>groundedness</small></div><div><b>0.87</b><small>relevance</small></div><div><b>3/3</b><small>injections blocked</small></div></div><a href="https://github.com/priyanshuu-x/PaperPilot" target="_blank" rel="noopener" data-cur>View on GitHub ↗</a></div>
-        </li>
-        <li class="gl locked" data-lv="2">
-          <span class="gl-n mono">LEVEL 3</span><h3>LLM Gateway</h3><p class="gl-sub">Injection, PII &amp; rate limits</p>
-          <p class="gl-lock">🔒 LOCKED · CLEAR THE LEVEL</p>
-          <div class="gl-open"><div class="gl-m"><div><b>2</b><small>bypasses caught</small></div><div><b>6</b><small>case eval</small></div><div><b>2</b><small>models w/ fallback</small></div></div><a href="https://github.com/priyanshuu-x/llm-gateway" target="_blank" rel="noopener" data-cur>View on GitHub ↗</a></div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- LAB: the creative feature -->
 <section class="lab" id="lab">
   <i class="shape sq s2" aria-hidden="true"></i><i class="shape s1" aria-hidden="true"></i>
   <div class="wrap">
-    <p class="eyebrow mono" data-r>03 — THE CREATIVE FEATURE</p>
+    <p class="eyebrow mono" data-r>02 — THE CREATIVE FEATURE</p>
     <h2 class="big" data-split>Try to <em>break</em> my agent.</h2>
     <p class="lab-lede" data-r>This is a live, in-browser miniature of how I build agents. You’re signed in as a customer. Ask for a refund, or try to talk the agent into something it shouldn’t do — prompt injection, someone else’s order, skipping human approval. Every attempt walks through the same guardrail → supervisor → investigator → policy → human → resolver pipeline.</p>
 
@@ -404,12 +404,12 @@
 <section class="proof" id="proof">
   <div class="wrap grid2">
     <div data-r>
-      <p class="eyebrow mono">04 — ACHIEVEMENTS</p>
+      <p class="eyebrow mono">03 — ACHIEVEMENTS</p>
       <h3 class="mid">Flipkart GRiD 8.0<br><em>AI Engineering Track</em></h3>
       <p class="muted">Cleared Rounds 1–3 of a national-level engineering challenge — profile screening, a proctored coding assessment and a business case-study round.</p>
     </div>
     <div data-r>
-      <p class="eyebrow mono">05 — EDUCATION</p>
+      <p class="eyebrow mono">04 — EDUCATION</p>
       <h3 class="mid">Bennett University<br><em>B.Tech, Computer Science &amp; Engineering</em></h3>
       <p class="muted">Expected May 2027. Greater Noida, India.</p>
     </div>
