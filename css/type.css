@@ -2,7 +2,7 @@
 :root{--display:'Syne',system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif}
 body{font-family:var(--body)}
 .hero-name,.big,.huge,.mid,.card h3,.power h3,.loader-name,.logo,.stat b,.metrics b,.score b,.mail,.marquee-track,.loader-count,.about-text,.links a.hot,.cta{font-family:var(--display)}
-.hero-name{font-size:clamp(2.2rem,6.4vw,7.4rem);letter-spacing:-.04em;line-height:.92;font-weight:800}
+.hero-name{font-size:clamp(2.2rem,4.4vw,5.4rem);letter-spacing:-.04em;line-height:.92;font-weight:800}
 .hero-name .thin{font-weight:400;-webkit-text-stroke:1.2px rgba(255,255,255,.9)}
 .big{font-size:clamp(2.1rem,6vw,5.6rem);letter-spacing:-.035em;line-height:1;font-weight:700;max-width:18ch}
 .huge{font-size:clamp(2.2rem,7vw,7rem);letter-spacing:-.04em;line-height:1;font-weight:700;max-width:16ch}
@@ -18,4 +18,4 @@ body{font-family:var(--body)}
 .cta,.links a{font-weight:600}
 .hero-lede{font-family:var(--body)}
 em{font-family:var(--serif)}
-@media (max-width:560px){.hero-name{font-size:clamp(2.2rem,11.2vw,4rem)}}
+@media (max-width:760px){.hero-name{font-size:clamp(2.2rem,11.2vw,4.4rem)}}
