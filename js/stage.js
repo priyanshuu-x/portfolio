@@ -26,6 +26,7 @@
   const user = (fn) => { auto = false; fn(); };
 
   items.forEach((it, k) => it.addEventListener('click', () => { if (dragged) return; if (k !== idx) user(() => set(k)); }));
+  items.forEach((it) => it.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); it.click(); } }));
   tabs.forEach((t) => t.addEventListener('click', () => user(() => set(+t.dataset.go))));
   gs.querySelector('.gs-arrow.prev').addEventListener('click', () => user(() => set(idx - 1)));
   gs.querySelector('.gs-arrow.next').addEventListener('click', () => user(() => set(idx + 1)));
