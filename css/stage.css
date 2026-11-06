@@ -37,7 +37,7 @@
 .gs-tile.t1{left:56%;top:11%;background:linear-gradient(135deg,#ff8fb4,#ffb06a);--p:18px}
 .gs-tile.t2{left:84%;top:40%;background:linear-gradient(135deg,#45d6a0,#4aa8ff);--p:-14px;animation-delay:-2s}
 .gs-tile.t3{left:8%;top:30%;background:linear-gradient(135deg,#8f7bff,#ff8fd0);--p:20px;animation-delay:-4s}
-.gs-tile.t4{left:44%;top:57%;width:clamp(30px,3.6vw,52px);background:linear-gradient(135deg,#ffd36a,#ff8f6a);--p:-24px;animation-delay:-1s}
+.gs-tile.t4{left:3%;top:13%;width:clamp(30px,3.6vw,52px);background:linear-gradient(135deg,#ffd36a,#ff8f6a);--p:-24px;animation-delay:-1s}
 
 /* project cards on the glass */
 .gs-items{position:absolute;inset:0;z-index:3}
