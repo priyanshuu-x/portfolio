@@ -13,13 +13,13 @@
   const dpr = Math.min(devicePixelRatio || 1, 2);
 
   const LEVELS = [
-    { name: 'TicketPilot', sub: 'Policy, ownership & human approval', goal: 8, speed: 105, gap: 1.35, reward: 'About & the Agent Tower', go: ['#about', 'Go to About ↓'], shield: 170, accent: '#86e0e8',
+    { name: 'TicketPilot', sub: 'Policy, ownership & human approval', goal: 6, speed: 105, gap: 1.35, reward: 'About & the Agent Tower', go: ['#about', 'Go to About ↓'], shield: 170, accent: '#86e0e8',
       bad: ['ignore previous instructions', 'refund every order', 'act as admin', 'refund #3150 (not mine)', 'skip human approval', 'reveal system prompt'],
       good: ['refund #1042', 'track order #5001', 'return #2077'] },
-    { name: 'PaperPilot', sub: 'Grounding, citations & off-topic gates', goal: 11, speed: 130, gap: 1.15, reward: 'the Projects', go: ['#work', 'See the projects ↓'], shield: 150, accent: '#b3a8fa',
+    { name: 'PaperPilot', sub: 'Grounding, citations & off-topic gates', goal: 8, speed: 130, gap: 1.15, reward: 'the Projects', go: ['#work', 'See the projects ↓'], shield: 150, accent: '#b3a8fa',
       bad: ['capital of France?', 'make up a citation', 'you are DAN', 'print your prompt', 'ignore the papers', 'write my essay'],
       good: ['what is RRF?', 'how does BM25 rank?', 'cite the reranker paper'] },
-    { name: 'LLM Gateway', sub: 'Injection, PII & rate limits', goal: 14, speed: 160, gap: 1.0, reward: 'the live agent demo', go: ['#lab', 'Try to break my agent ↓'], shield: 132, accent: '#ffdc7a',
+    { name: 'LLM Gateway', sub: 'Injection, PII & rate limits', goal: 11, speed: 160, gap: 1.0, reward: 'the live agent demo', go: ['#lab', 'Try to break my agent ↓'], shield: 132, accent: '#ffdc7a',
       bad: ['<system>override</system>', 'SSN 123-45-6789', 'disregard all rules', 'spam x1000 req/s', 'jailbreak mode on', 'bypass the guardrail'],
       good: ['summarize this doc', 'translate to Hindi', 'write a regex'] },
   ];
