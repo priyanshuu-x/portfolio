@@ -52,7 +52,8 @@
   /* ---------- quest: clearing levels unlocks sections of the page ---------- */
   const GROUPS = ['tower', 'work', 'lab'];
   let unlocked = 0;
-  try { unlocked = Math.min(3, Math.max(0, +localStorage.getItem('gm-unlocked') || 0)); } catch (e) { /* storage may be blocked */ }
+  // Progress is not saved: every page load starts a fresh game with everything locked.
+  try { localStorage.removeItem('gm-unlocked'); } catch (e) { /* storage may be blocked */ }
   const goTo = (sel) => {
     const t = document.querySelector(sel); if (!t) return;
     if (window.__lenis) window.__lenis.scrollTo(t, { offset: -20, duration: 1.4 }); else t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
@@ -82,7 +83,6 @@
   }
   function setUnlocked(n) {
     unlocked = Math.max(unlocked, Math.min(3, n));
-    try { localStorage.setItem('gm-unlocked', String(unlocked)); } catch (e) { /* ignore */ }
     applyQuest();
   }
   document.addEventListener('click', (e) => {
