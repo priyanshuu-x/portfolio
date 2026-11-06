@@ -1,0 +1,8 @@
+/* Cinematic WebGL sky sits behind the page; the old CSS gradient stays as the fallback */
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+html.has-sky body{background:#0b1450}
+html.has-sky body::before{display:none}
+html.has-sky #net{opacity:.28}
+html.has-sky .orb{opacity:.28!important}
+html.has-sky .nav.solid{background:linear-gradient(rgba(8,12,60,.5),transparent)}
+html.has-sky .marquee,html.has-sky .foot{background:rgba(255,255,255,.10)}
